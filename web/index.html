@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>hermes</title>
+<meta name="description" content="Send a file of any size straight from your browser to someone else's. Peer-to-peer, end-to-end encrypted, no accounts, no ads.">
+<link rel="icon" href="/s/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/s/style.css">
+<script type="module" src="/s/app.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/"><img src="/s/logo.svg" alt="" width="40" height="40"><span>hermes</span></a>
+  <nav>
+    <a href="https://github.com/bluefield-creator/hermes" rel="noopener" target="_blank">github</a> /
+    <a href="/about">about</a> /
+    <a href="/donate">donate</a>
+  </nav>
+</header>
+
+<main>
+  <section id="pick" hidden>
+    <label class="drop" id="drop">
+      <input type="file" id="file">
+      <svg class="folder" viewBox="0 0 120 90" aria-hidden="true"><use href="#folder"/></svg>
+      <strong>drop a file here</strong>
+      <span>or tap to choose one. any size.</span>
+    </label>
+    <p class="fine">the file goes straight from this tab to theirs, encrypted end to end. nothing is uploaded or stored.</p>
+  </section>
+
+  <section id="send" hidden>
+    <h1>sending file <span class="fname" id="s-name"></span>…</h1>
+    <svg class="folder big" viewBox="0 0 120 90" aria-hidden="true"><use href="#folder"/></svg>
+    <p class="size" id="s-size"></p>
+    <div id="peers"></div>
+    <p class="waiting" id="s-waiting">waiting for someone to open the link…</p>
+    <div class="share">
+      <p>here's ur share link:</p>
+      <div class="linkrow">
+        <input id="s-link" readonly aria-label="share link">
+        <button id="s-copy" type="button">copy</button>
+      </div>
+      <p class="fine">keep this tab open until they're done: the file comes from here.</p>
+    </div>
+  </section>
+
+  <section id="recv" hidden>
+    <h1 id="r-title">someone's sending u a file</h1>
+    <svg class="folder big" viewBox="0 0 120 90" aria-hidden="true"><use href="#folder"/></svg>
+    <p class="fname big" id="r-name">…</p>
+    <p class="size" id="r-size"></p>
+    <button id="r-go" class="go" type="button" disabled>connecting…</button>
+    <div id="r-progress" class="progress" hidden>
+      <div class="bar"><div class="fill"></div></div>
+      <div class="stats"><span class="pct">0%</span><span class="bytes"></span></div>
+      <p class="note"></p>
+    </div>
+    <p class="fine" id="r-hint"></p>
+  </section>
+
+  <section id="oops" hidden>
+    <h1>hmm.</h1>
+    <p id="oops-msg"></p>
+    <p><a href="/">send a file instead</a></p>
+  </section>
+
+  <section id="about" class="prose" hidden>
+    <h1>about</h1>
+    <p>really fast file transfer thingy. pick a file, send the link, they get it straight from you. use it however you want. we don't really care.</p>
+    <p class="fine">(it's peer-to-peer and end-to-end encrypted, there's no size limit, and nothing gets stored. just keep your tab open until they're done.)</p>
+  </section>
+
+  <section id="donate" hidden>
+    <h1>haha, lol</h1>
+    <p>we don't actually need your money.</p>
+    <p>bye. 👋</p>
+  </section>
+</main>
+
+<svg class="sprite" aria-hidden="true">
+  <symbol id="folder" viewBox="0 0 120 90">
+    <path d="M6 10a6 6 0 0 1 6-6h28l8 10v8H6z" fill="#d6a95a"/>
+    <rect x="6" y="18" width="108" height="68" rx="7" fill="#f0c674"/>
+    <path d="M6 44c22-3 38 4 56 2s34-5 52-2" fill="none" stroke="#8a8a8a" stroke-width="2.5"/>
+    <rect x="17" y="40" width="7" height="16" rx="3.5" fill="none" stroke="#8a8a8a" stroke-width="2.5"/>
+  </symbol>
+</svg>
+</body>
+</html>

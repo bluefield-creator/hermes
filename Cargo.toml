@@ -1,0 +1,19 @@
+[package]
+name = "hermes"
+version = "0.1.0"
+edition = "2021"
+description = "Browser-to-browser, end-to-end encrypted file transfer. Signaling + live relay only."
+
+[dependencies]
+axum = { version = "0.8", default-features = false, features = ["ws", "tokio", "http1"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "time", "sync", "signal"] }
+futures-util = { version = "0.3", default-features = false, features = ["sink", "std"] }
+serde_json = "1"
+getrandom = "0.3"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
